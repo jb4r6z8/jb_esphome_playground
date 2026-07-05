@@ -20,7 +20,7 @@ void EmptyComponent::dump_config(){
 
 void EmptyComponent::adddata(){
 
-    size_t alloc_size = 1024 * 1024; // 1 KB
+    size_t alloc_size = 1024; // 1 KB
 
     // Allocate memory from external PSRAM
     void *ext_ram_ptr = heap_caps_malloc(alloc_size, MALLOC_CAP_SPIRAM);
@@ -48,7 +48,12 @@ void EmptyComponent::adddata(){
     ESP_LOGD("JBMEM","External RAM memory freed.\n");
 
 
+  int32_t *arr = (int32_t *) heap_caps_malloc(1024 * 1024 * sizeof(int32_t), MALLOC_CAP_SPIRAM);
 
+
+   for (int i = 0; i < 1024 * 1024; i++) {
+        arr[i] = i * 2;
+    }
     
   for (uint16_t i = 0; i < 10; i++ ) {
     std::vector<int32_t> v_vector_inside = {1,2,3,4};
