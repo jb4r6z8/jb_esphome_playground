@@ -1,5 +1,7 @@
 #include "esphome/core/log.h"
 #include "empty_component.h"
+#include "esp_system.h"
+#include "esp_heap_caps.h"
 
 namespace esphome {
 namespace empty_component {
