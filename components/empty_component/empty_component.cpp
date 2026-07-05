@@ -4,6 +4,7 @@
 #include "esp_heap_caps.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "esp_spiram.h"
 
 namespace esphome {
 namespace empty_component {
