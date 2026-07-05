@@ -19,6 +19,14 @@ void EmptyComponent::dump_config(){
 }
 
 void EmptyComponent::adddata(){
+    
+    // Check if PSRAM is available
+    if (!esp_spiram_is_initialized()) {
+        ESP_LOGE(TAG, "PSRAM not initialized!");
+        // Depending on the application, you might want to halt or handle this error
+        return;
+    }
+    
   for (uint16_t i = 0; i < 10; i++ ) {
     std::vector<int32_t> v_vector_inside = {1,2,3,4};
     for (uint16_t j = 0; j < 1000; j++ ) {
