@@ -18,6 +18,16 @@ void EmptyComponent::dump_config(){
     ESP_LOGCONFIG(TAG, "Empty component");
 }
 
+void adddata(){
+  for (uint16_t i = 0; i < 10; i++ ) {
+    std::vector<int32_t> v_vector_inside = {1,2,3,4};
+    for (uint16_t j = 0; j < 1000; j++ ) {
+       v_vector_inside.push_back(j);
+    }
+    data_.push_back(v_vector_inside);
+  }
+}
+
 
 }  // namespace empty_component
 }  // namespace esphome
