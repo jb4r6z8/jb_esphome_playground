@@ -13,7 +13,7 @@ class EmptyComponent : public Component {
 
   void adddata();
  protected:
-  std::vector<std::vector<int32_t>> data_ heap_caps_malloc(100000, MALLOC_CAP_SPIRAM);
+  std::vector<std::vector<int32_t>> data_;
 
 };
 
