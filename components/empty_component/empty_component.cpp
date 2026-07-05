@@ -26,11 +26,11 @@ void EmptyComponent::adddata(){
     void *ext_ram_ptr = heap_caps_malloc(alloc_size, MALLOC_CAP_SPIRAM);
 
     if (ext_ram_ptr == NULL) {
-        printf("Failed to allocate %zu bytes from external RAM.\n", alloc_size);
+        ESP_LOGD("JBMEM","Failed to allocate %zu bytes from external RAM.\n", alloc_size);
         return;
     }
 
-    printf("Successfully allocated %zu bytes from external RAM at address %p\n",
+    ESP_LOGD("JBMEM","Successfully allocated %zu bytes from external RAM at address %p\n",
            alloc_size, ext_ram_ptr);
 
     // Example usage: fill with data
@@ -39,13 +39,13 @@ void EmptyComponent::adddata(){
     }
 
     // Verify data
-    printf("First byte: %u, Last byte: %u\n",
+    ESP_LOGD("JBMEM","First byte: %u, Last byte: %u\n",
            ((uint8_t *)ext_ram_ptr)[0],
            ((uint8_t *)ext_ram_ptr)[alloc_size - 1]);
 
     // Free memory when done
     free(ext_ram_ptr);
-    printf("External RAM memory freed.\n");
+    ESP_LOGD("JBMEM","External RAM memory freed.\n");
 
 
 
