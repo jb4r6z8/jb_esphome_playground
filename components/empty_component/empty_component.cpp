@@ -20,7 +20,7 @@ void EmptyComponent::dump_config(){
 
 void EmptyComponent::adddata(){
 
-    size_t alloc_size = 1024; // 1 KB
+    size_t alloc_size = 1024 * 256; // 1 KB
 
     // Allocate memory from external PSRAM
     void *ext_ram_ptr = heap_caps_malloc(alloc_size, MALLOC_CAP_SPIRAM);
