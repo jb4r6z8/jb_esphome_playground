@@ -2,6 +2,8 @@
 #include "empty_component.h"
 #include "esp_system.h"
 #include "esp_heap_caps.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
 
 namespace esphome {
 namespace empty_component {
