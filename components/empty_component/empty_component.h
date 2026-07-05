@@ -13,7 +13,8 @@ class EmptyComponent : public Component {
 
   void adddata();
  protected:
-  std::vector<std::vector<int32_t>> data_;
+  std::vector<int32_t> data_;
+    
 
 };
 
