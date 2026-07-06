@@ -14,9 +14,15 @@ class HelperDisplay : public Component {
   void adddata();
  protected:
   std::vector<int32_t *> data_;
+  std::vector<HD_DataSource> hdds_;
     
 
 };
+
+class HD_DataSource {
+  protected:
+    std::string entity_;
+}
 
 
 }  // namespace helper_display
