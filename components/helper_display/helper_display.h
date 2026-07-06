@@ -15,17 +15,11 @@ class HelperDisplay : public Component {
  protected:
   std::vector<int32_t *> data_;
   //std::vector<HD_DataSource> hdds_;
-  HD_DataSource hdds_;
+  hd_datasource hdds_;
   
 
 
 
-};
-
-
-class HD_DataSource {
-  protected:
-    std::string entity_;
 };
 
 
