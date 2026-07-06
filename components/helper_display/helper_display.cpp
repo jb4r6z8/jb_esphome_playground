@@ -27,7 +27,7 @@ void HelperDisplay::adddata(){
     
   data_.push_back(arr);
   ESP_LOGD("JBMEM","0,0: %i",data_[0][0]);
-  HD_DataSource.set_entity();
+  HD_Datasource.set_entity();
 }
 
 
