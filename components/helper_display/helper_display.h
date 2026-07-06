@@ -19,7 +19,7 @@ class HelperDisplay : public Component {
   
 class ClassA {
 public:
-    HelperDisplay::ClassB obj;
+    helper_display::ClassB obj;
 };
 
 class ClassB {
