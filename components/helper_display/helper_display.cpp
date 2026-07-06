@@ -1,6 +1,6 @@
 #include "esphome/core/log.h"
 #include "helper_display.h"
-#include "hd_datasource.h"
+#include "hd_datasource.cpp"
 
 namespace esphome {
 namespace helper_display {
