@@ -17,14 +17,16 @@ class HelperDisplay : public Component {
   //std::vector<HD_DataSource> hdds_;
   //HD_Datasource hdds_;
   
+class ClassB {
+public:
+};
+
+
 class ClassA {
 public:
     helper_display::ClassB obj;
 };
 
-class ClassB {
-public:
-};
 
 
 
