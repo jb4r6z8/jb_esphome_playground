@@ -5,7 +5,7 @@ namespace helper_display {
 
 
 class hd_datasource {
-  protected:
+  public:
     std::string entity_;
 };
 
