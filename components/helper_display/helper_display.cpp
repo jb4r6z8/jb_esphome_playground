@@ -1,6 +1,6 @@
 #include "esphome/core/log.h"
 #include "helper_display.h"
-#include "hd_datasource.cpp"
+#include "hd_datasource.h"
 
 namespace esphome {
 namespace helper_display {
@@ -27,7 +27,7 @@ void HelperDisplay::adddata(){
     
   data_.push_back(arr);
   ESP_LOGD("JBMEM","0,0: %i",data_[0][0]);
-  hdds_.set_entity();
+  HD_DataSource.set_entity();
 }
 
 
