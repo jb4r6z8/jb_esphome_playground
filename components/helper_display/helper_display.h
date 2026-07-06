@@ -1,6 +1,7 @@
 #pragma once
 
 #include "esphome/core/component.h"
+#include "hd_datasource.h"
 
 namespace esphome {
 namespace helper_display {
@@ -15,17 +16,8 @@ class HelperDisplay : public Component {
  protected:
   std::vector<int32_t *> data_;
   //std::vector<HD_DataSource> hdds_;
-  //HD_Datasource hdds_;
+  HD_Datasource hdds_;
   
-class ClassB {
-public:
-};
-
-
-class ClassA {
-public:
-    helper_display::ClassB obj;
-};
 
 
 
