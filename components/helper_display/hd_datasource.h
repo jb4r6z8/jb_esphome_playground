@@ -4,7 +4,7 @@ namespace esphome {
 namespace helper_display {
 
 
-class hd_datasource {
+class HD_Datasource {
   public:
     std::string entity_;
 };
