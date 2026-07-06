@@ -21,7 +21,7 @@ class HelperDisplay : public Component {
   class HD_DataSource {
     protected:
       std::string entity_;
-  }
+  };
 
 
 };
