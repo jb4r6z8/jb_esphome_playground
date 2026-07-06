@@ -16,7 +16,7 @@ class HelperDisplay : public Component {
  protected:
   std::vector<int32_t *> data_;
   //std::vector<HD_DataSource> hdds_;
-  //HD_Datasource hdds_;
+  helper_display::HD_Datasource hdds_;
   
 
 
