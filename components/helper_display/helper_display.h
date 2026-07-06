@@ -18,12 +18,14 @@ class HelperDisplay : public Component {
   HD_DataSource hdds_;
   
 
-  class HD_DataSource {
-    protected:
-      std::string entity_;
-  };
 
 
+};
+
+
+class HD_DataSource {
+  protected:
+    std::string entity_;
 };
 
 
