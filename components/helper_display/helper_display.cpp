@@ -28,7 +28,8 @@ void HelperDisplay::adddata(){
   data_.push_back(arr);
   ESP_LOGD("JBMEM","0,0: %i",data_[0][0]);
   HD_Datasource hdds;
-  hdds.set_entity("Test");
+  std::string v_str = "Test";
+  hdds.set_entity(v_str);
 }
 
 
