@@ -1,6 +1,6 @@
 #include "esphome/core/log.h"
 #include "helper_display.h"
-#include "hd_datasource.h"
+#include "hd_datasource.cpp"
 
 namespace esphome {
 namespace helper_display {
@@ -33,11 +33,6 @@ void HelperDisplay::adddata(){
   HD_Datasource::set_entity(v_str);
 }
 
-
-static void HD_Datasource::set_entity(std::string entity) {
-    ESP_LOGD("JBDS","entity set");
-    entity_ = entity;
-}
 
 }  // namespace helper_display
 }  // namespace esphome
