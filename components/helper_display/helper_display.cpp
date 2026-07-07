@@ -34,7 +34,6 @@ void HelperDisplay::adddata(){
   v_hdds.update(3, true);
   v_hdds.update(4, false);
   v_hdds.update(5);
-  v_hdds.set_entity(v_str);
   hdds_.push_back(v_hdds);
   
 }

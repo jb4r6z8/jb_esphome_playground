@@ -16,6 +16,13 @@ HDDatasource::HDDatasource(std::string entity, uint16_t granularity) {
 HDDatasource::HDDatasource() : HDDatasource("", 0) {
 }
 
+std::string HDDatasource::get_entity() {
+    return entity_;
+}
+
+uint16_t HDDatasource::granularity() {
+    return granularity_;
+}
 
 void HDDatasource::update(int32_t value, bool force_append = false ) {
     auto now = std::chrono::system_clock::now();
@@ -26,19 +33,6 @@ void HDDatasource::update(int32_t value, bool force_append = false ) {
     ts_ = now_ts - (now_ts % granularity_);
     data_[ptr_] = value;
     ESP_LOGD("JBDS","PTR: %i value: %i", ptr_, data_[ptr_]);
-}
-
-
-void HDDatasource::set_entity(std::string entity) {
-    ESP_LOGD("JBDS","entity set");
-    auto now = std::chrono::system_clock::now();
-    auto unix_timestamp = std::chrono::duration_cast<std::chrono::seconds>(now.time_since_epoch()).count();
-    ESP_LOGD("JBDS","TS: %i", unix_timestamp);
-
-    
-    entity_ = entity;
-
-
 }
 
 
