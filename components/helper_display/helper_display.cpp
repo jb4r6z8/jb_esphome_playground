@@ -20,8 +20,8 @@ void HelperDisplay::dump_config(){
 }
 
 void HelperDisplay::adddata(){
-  int32_t *arr = (int32_t *) heap_caps_malloc(1024 * 256 * sizeof(int32_t), MALLOC_CAP_SPIRAM);
-  for (int i = 0; i < 1024 * 256; i++) {
+  int32_t *arr = (int32_t *) heap_caps_malloc(1024 * sizeof(int32_t), MALLOC_CAP_SPIRAM);
+  for (int i = 0; i < 1024; i++) {
     arr[i] = i * 2;
   }
     
