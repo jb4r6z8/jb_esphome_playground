@@ -20,7 +20,7 @@ class HDDatasource {
     std::string entity_;
     uint16_t granularity_;
     int32_t *data_ = (int32_t *) heap_caps_malloc(data_size * sizeof(int32_t), MALLOC_CAP_SPIRAM);
-    uint16_t data_ptr_;
+    uint16_t ptr_;
     int32_t ts_;
 
 };
