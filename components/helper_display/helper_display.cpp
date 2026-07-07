@@ -34,5 +34,10 @@ void HelperDisplay::adddata(){
 }
 
 
+static void HD_Datasource::set_entity(std::string entity) {
+    ESP_LOGD("JBDS","entity set");
+    entity_ = entity;
+}
+
 }  // namespace helper_display
 }  // namespace esphome
