@@ -8,7 +8,7 @@ namespace helper_display {
 
 class HD_Datasource {
   public:
-    static void set_entity();
+    static void set_entity(std::string entity);
 
   protected:
     static std::string entity_;
