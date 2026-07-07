@@ -1,10 +1,10 @@
-#pragma once
-
 #include "esphome/core/component.h"
 #include "hd_datasource.h"
 
 namespace esphome {
 namespace helper_display {
+
+class HD_Datasource;
 
 class HelperDisplay : public Component {
  public:
