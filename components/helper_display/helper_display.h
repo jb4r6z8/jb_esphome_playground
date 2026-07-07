@@ -1,5 +1,4 @@
 #include "esphome/core/component.h"
-#include "hd_datasource.h"
 
 namespace esphome {
 namespace helper_display {
