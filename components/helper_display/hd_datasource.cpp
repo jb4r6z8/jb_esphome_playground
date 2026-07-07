@@ -6,10 +6,10 @@ namespace esphome {
 namespace helper_display {
 
 HDDatasource::HDDatasource() {
-  this.initialized_ = false;
-  this.entity_ = "";
-  this.granularity_ = 0;
-  this.ptr_ = 0;
+  initialized_ = false;
+  entity_ = "";
+  granularity_ = 0;
+  ptr_ = 0;
   for (int i = 0; i < data_size; i++) {
     data_[i] = 0;
   }
@@ -18,8 +18,8 @@ HDDatasource::HDDatasource() {
 
 HDDatasource::HDDatasource(std::string entity, uint16_t granularity) {
   HDDatasource();
-  this.entity_ = entity;
-  this.granularity_ = granularity;
+  entity_ = entity;
+  granularity_ = granularity;
 }
 
 void HDDatasource::update(int32_t value, bool force_append = false ) {
