@@ -30,7 +30,7 @@ void HelperDisplay::adddata(){
   std::string v_str = "Test";
   //HD_Datasource hdds;
   //hdds.set_entity(v_str);
-  HD_Datasource.set_entity(v_str);
+  HD_Datasource::set_entity(v_str);
 }
 
 
