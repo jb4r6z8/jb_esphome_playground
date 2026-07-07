@@ -24,6 +24,7 @@ HDDatasource::HDDatasource(std::string entity, uint16_t granularity) {
 
 void HDDatasource::set_entity(std::string entity) {
     ESP_LOGD("JBDS","entity set");
+    auto now = std::chrono::system_clock::now();
     auto unix_timestamp = std::chrono::duration_cast<std::chrono::seconds>(now.time_since_epoch()).count();
     ESP_LOGD("JBDS","TS: i%", unix_timestamp);
 
