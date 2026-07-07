@@ -13,7 +13,7 @@ HDDatasource::HDDatasource() {
 }
 
 HDDatasource::HDDatasource(std::string entity, uint16_t granularity) {
-  HDDatasource();
+  this.HDDatasource();
   entity_ = entity;
   granularity_ = granularity;
 }
