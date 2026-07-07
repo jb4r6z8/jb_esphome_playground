@@ -1,4 +1,5 @@
 #include "esphome/core/log.h"
+#include "helper_display.h"
 
 namespace esphome {
 namespace helper_display {
