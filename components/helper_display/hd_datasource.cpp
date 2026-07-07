@@ -9,7 +9,7 @@ HDDatasource::HDDatasource() {
   initialized_ = false;
   entity_ = "";
   granularity_ = 0;
-  data_ptr_ = 0;
+  ptr_ = 0;
   for (int i = 0; i < data_size; i++) {
     data_[i] = 0;
   }
