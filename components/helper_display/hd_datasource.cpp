@@ -6,14 +6,10 @@ namespace esphome {
 namespace helper_display {
 
 HDDatasource::HDDatasource() {
-  initialized_ = false;
-  entity_ = "";
-  granularity_ = 0;
-  ptr_ = 0;
   for (int i = 0; i < data_size; i++) {
     data_[i] = 0;
   }
-  ESP_LOGD("JBDS","Constructor PTR: %i value: %i", this.ptr_, this.data_[ptr_]);
+  ESP_LOGD("JBDS","Constructor PTR: %i value: %i", ptr_, data_[ptr_]);
 }
 
 HDDatasource::HDDatasource(std::string entity, uint16_t granularity) {
