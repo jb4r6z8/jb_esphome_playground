@@ -4,7 +4,7 @@
 namespace esphome {
 namespace helper_display {
 
-void HD_Datasource::set_entity(std::string entity) {
+void HDDatasource::set_entity(std::string entity) {
     ESP_LOGD("JBDS","entity set");
     entity_ = entity;
 }
