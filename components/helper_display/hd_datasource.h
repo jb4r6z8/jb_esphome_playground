@@ -5,6 +5,7 @@
 namespace esphome {
 namespace helper_display {
 
+static const uint16_t data_size = 512;
 
 class HDDatasource {
   public:
@@ -14,7 +15,7 @@ class HDDatasource {
     bool initialized_;
     std::string entity_;
     int32_t granularity_;
-    int32_t *arr_ = (int32_t *) heap_caps_malloc(1024 * 256 * sizeof(int32_t), MALLOC_CAP_SPIRAM);
+    int32_t *data_ = (int32_t *) heap_caps_malloc(data_size * sizeof(int32_t), MALLOC_CAP_SPIRAM);
 
 
 };

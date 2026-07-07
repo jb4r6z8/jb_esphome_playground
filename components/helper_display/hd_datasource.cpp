@@ -7,9 +7,6 @@ namespace helper_display {
 void HDDatasource::set_entity(std::string entity) {
     ESP_LOGD("JBDS","entity set");
     entity_ = entity;
-    //for (int i = 0; i < 1024 * 256; i++) {
-    //    arr_[i] = i * 2;
-    //}
 
 }
 
