@@ -19,6 +19,7 @@ HDDatasource::HDDatasource(std::string entity, uint16_t granularity) {
 }
 
 void HDDatasource::update(int32_t value, bool force_append = false ) {
+    ESP_LOGD("JBDS","Entity: %s Granularity: %i", entity_, granularity_);
     if (force_append) {
       ESP_LOGD("JBDS","1) PTR: %i value: %i", ptr_, data_[ptr_]);
       ptr_ = ( ptr_ + 1 ) % data_size;
