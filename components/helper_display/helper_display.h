@@ -13,7 +13,7 @@ class HelperDisplay : public Component {
   void adddata();
  protected:
   std::vector<int32_t *> data_;
-  std::vector<HDDataSource> hdds_;
+  std::vector<HDDatasource> hdds_;
   //helper_display::HDDatasource hdds_;
   
 
