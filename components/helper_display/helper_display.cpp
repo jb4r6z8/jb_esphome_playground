@@ -30,6 +30,11 @@ void HelperDisplay::adddata(){
   std::string v_str = "Test2";
   HDDatasource v_hdds("Test",2);
   v_hdds.set_entity(v_str);
+  v_hdds.update(1, true);
+  v_hdds.update(2, true);
+  v_hdds.update(3, true);
+  v_hdds.update(4, false);
+  v_hdds.update(5);
   hdds_.push_back(v_hdds);
   
 }
