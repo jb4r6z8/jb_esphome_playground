@@ -21,7 +21,7 @@ HDDatasource::HDDatasource(std::string entity, uint16_t granularity) {
   granularity_ = granularity;
 }
 
-void HDDatasource::update(int32_t value, bool& force_append = false ) {
+void HDDatasource::update(int32_t value, bool force_append = false ) {
     if (force_append) {
       ptr_ = ( ptr_ + 1 ) % data_size;
     } else {
