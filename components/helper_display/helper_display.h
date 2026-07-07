@@ -1,9 +1,8 @@
 #include "esphome/core/component.h"
+#include "hd_datasource.h"
 
 namespace esphome {
 namespace helper_display {
-
-class HD_Datasource;
 
 class HelperDisplay : public Component {
  public:
@@ -14,8 +13,8 @@ class HelperDisplay : public Component {
   void adddata();
  protected:
   std::vector<int32_t *> data_;
-  //std::vector<HD_DataSource> hdds_;
-  helper_display::HD_Datasource hdds_;
+  //std::vector<HDDataSource> hdds_;
+  helper_display::HDDatasource hdds_;
   
 
 

@@ -6,7 +6,7 @@ namespace esphome {
 namespace helper_display {
 
 
-class HD_Datasource {
+class HDDatasource {
   public:
     void set_entity(std::string entity);
 
