@@ -35,6 +35,13 @@ void HDDatasource::update(int32_t value, bool force_append = false ) {
     ESP_LOGD("JBDS","PTR: %i value: %i", ptr_, data_[ptr_]);
 }
 
+void HDDatasource::init_by_json(JsonObjectConst json) {
+  ptr_ = 0;
+  for (int i = 0; i < data_size; i++) {
+    data_[i] = 0;
+  }
+}
+
 
 }  // namespace helper_display
 }  // namespace esphome    

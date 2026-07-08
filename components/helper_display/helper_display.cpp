@@ -56,7 +56,10 @@ void HelperDisplay::ds_update_current(std::string entity, int32_t value) {
 }
 
 void HelperDisplay::ds_init_by_json(JsonObjectConst json) {
-  ESP_LOGD("dhjsn", json["response"]["entity"]);
+  std::string entity = json["response"]["entity"];
+  uint16_t granularity = json["response"]["seconds"];
+  ds_register(entity,granularity);
+  hdds_[entity][granularity]->init_by_json(json);
 
 }
 
