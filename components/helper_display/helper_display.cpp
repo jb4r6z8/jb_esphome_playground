@@ -70,7 +70,7 @@ void HelperDisplay::cs_register(std::string series, HDChartSeriesType seriestype
 
   }
   else {
-    hdcs[series] = new HDChartSeries v_hdcs(series, seriestype, entity, granularity, &data);
+    hdcs[series] = new HDChartSeries v_hdcs(series, seriestype, entity, granularity, data);
   }
 
 }

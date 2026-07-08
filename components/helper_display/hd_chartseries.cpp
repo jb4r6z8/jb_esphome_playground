@@ -10,7 +10,7 @@ HDChartSeries::HDChartSeries(std::string series, HDChartSeriesType seriestype, s
     seriestype_ = seriestype;
     entity_ = entity;
     granularity_ = granularity;
-    data_ = &data;
+    data_ = data;
 }
 
 HDChartSeries::HDChartSeries() : HDChartSeries::HDChartSeries("",HDChartSeriesType::STANDARD,"",0,nullptr) {
