@@ -33,11 +33,11 @@ bool HelperDisplay::ds_exist(std::string entity, uint16_t granularity) {
 
 void HelperDisplay::ds_register(std::string entity, uint16_t granularity) {
   if ( !hdds_.contains(entity) ) {
-    hdds_[entity][granularity] = HDDatasource(entity,granularity);
+    hdds_[entity][granularity] = new HDDatasource(entity,granularity);
   }
   else {
     if ( !hdds_[entity].contains(granularity) ) {
-      hdds_[entity][granularity] = HDDatasource(entity,granularity);
+      hdds_[entity][granularity] = new HDDatasource(entity,granularity);
     }
   }
 }
