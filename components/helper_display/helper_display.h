@@ -4,6 +4,7 @@
 #include <ArduinoJson.h>
 #include "esphome/core/component.h"
 #include "hd_datasource.h"
+#include "hd_chartseries.h"
 
 namespace esphome {
 namespace helper_display {
