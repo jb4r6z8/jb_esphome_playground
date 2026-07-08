@@ -1,4 +1,7 @@
+#pragma once
+
 #include <map>
+#include <ArduinoJson.h>
 #include "esphome/core/component.h"
 #include "hd_datasource.h"
 
