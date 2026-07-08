@@ -27,7 +27,7 @@ class HelperDisplay : public Component {
   void adddata();
  protected:
   std::map<std::string,std::map<uint16_t,HDDatasource*>> hdds_;
-  std::map<std::string,std::map<uint16_t,HDChartSeries*>> hdcs_;
+  std::string,std::map<uint16_t,HDChartSeries*> hdcs_;
   
 
 
