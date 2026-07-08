@@ -12,6 +12,7 @@ enum class HDChartSeriesType : uint8_t {
 class HDChartSeries {
   public:
     
+  HDChartSeries(std::string series, HDChartSeriesType seriestype, std::string entity, uint16_t granularity, int32_t * data);
   HDChartSeries();
 
   std::string get_entity();

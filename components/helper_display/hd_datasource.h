@@ -11,8 +11,8 @@ static const uint16_t data_size = 512;
 class HDDatasource {
   public:
     
-    HDDatasource();
     HDDatasource(std::string entity, uint16_t granularity);
+    HDDatasource();
     std::string get_entity();
     uint16_t get_granularity();
     void update(int32_t value, bool force_append);

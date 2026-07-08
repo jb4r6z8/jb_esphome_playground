@@ -21,6 +21,8 @@ class HelperDisplay : public Component {
   void ds_update_current(std::string entity, int32_t value);
   void ds_init_by_json(JsonObjectConst json);
 
+  void cs_register(std::string series, HDChartSeriesType seriestype, std::string entity, uint16_t granularity, int32_t * data );
+
   void adddata();
  protected:
   std::map<std::string,std::map<uint16_t,HDDatasource*>> hdds_;
