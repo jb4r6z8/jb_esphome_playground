@@ -47,10 +47,9 @@ void HDDatasource::init_by_json(JsonObjectConst json) {
   if (!v_result.isNull()) {
     size_t v_result_rows = v_result.size();
     int v_result_i = v_result_rows;
-    int v_seq_i = response["response"]["rows"].as<int>();
+    int v_seq_i = json["response"]["rows"].as<int>();
     int v_value_i = 0;
-    id(gd_ptr)[gdnr] = v_seq_i - 1;
-    id(gd_init)[gdnr] = 1;
+    ptr_ = v_seq_i - 1;
     for (int r = v_seq_i - 1; r > 0; r--) {
       if (v_result_i > 0 and r < v_seq_i ) {
         v_result_i--;
