@@ -19,22 +19,50 @@ void HelperDisplay::dump_config(){
     ESP_LOGCONFIG(TAG, "Helper Display");
 }
 
-void HelperDisplay::adddata(){
-  int32_t *arr = (int32_t *) heap_caps_malloc(1024 * sizeof(int32_t), MALLOC_CAP_SPIRAM);
-  for (int i = 0; i < 1024; i++) {
-    arr[i] = i * 2;
+bool HelperDisplay::ds_exist(std::string entity, uint16_t granularity) {
+  if ( !hdds_.contains(entity) ) {
+    return false;
   }
-    
-  data_.push_back(arr);
-  ESP_LOGD("JBMEM","0,0: %i",data_[0][0]);
-  std::string v_str = "Test2";
+  else {
+    if ( !hdds_[entity].contains(granularity) ) {
+      return false;
+    }
+  }
+  return true;
+}
+
+void HelperDisplay::ds_register(std::string entity, uint16_t granularity) {
+  if ( !hdds_.contains(entity) ) {
+    hdds_[entity][granularity] = HDDatasource(entity,granularity);
+  }
+  else {
+    if ( !hdds_[entity].contains(granularity) ) {
+      hdds_[entity][granularity] = HDDatasource(entity,granularity);
+    }
+  }
+}
+
+void HelperDisplay::ds_update(std::string entity, uint16_t granularity, int32_t value, bool force_append = false) {
+  ds_register(entity,granularity);
+  hdds_[entity][granularity].update(value, force_append);
+}
+
+void HelperDisplay::ds_update_current(std::string entity, int32_t value) {
+  if (hdds_.contains(entity)) {
+    for (const auto& [granulariy, ds] : hdds_[entity]) {
+      ds.update(value);
+    }
+  }
+}
+
+void HelperDisplay::adddata(){
   HDDatasource v_hdds("Test",2);
   v_hdds.update(1, true);
   v_hdds.update(2, true);
   v_hdds.update(3, true);
   v_hdds.update(4, false);
   v_hdds.update(5);
-  hdds_.push_back(v_hdds);
+  hdds[v_hdds.get_entity()][v_hdds.get_granularity()] = v_hdds;
   
 }
 

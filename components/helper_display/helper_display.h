@@ -10,11 +10,14 @@ class HelperDisplay : public Component {
   void loop() override;
   void dump_config() override;
 
+  bool ds_exist(std::string entity, uint16_t granularity);
+  void ds_register(std::string entity, uint16_t granularity);
+  void ds_update(std::string entity, uint16_t granularity, int32_t value, bool force_append = false);
+  void ds_update_current(std::string entity, int32_t value);
+
   void adddata();
  protected:
-  std::vector<int32_t *> data_;
-  std::vector<HDDatasource> hdds_;
-  //helper_display::HDDatasource hdds_;
+  std::map<std:string,std::map<uint16_t,HDDatasource>> hdds_;
   
 
 
