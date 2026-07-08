@@ -15,6 +15,7 @@ class HelperDisplay : public Component {
   void ds_register(std::string entity, uint16_t granularity);
   void ds_update(std::string entity, uint16_t granularity, int32_t value, bool force_append);
   void ds_update_current(std::string entity, int32_t value);
+  void ds_init_by_json(JsonObjectConst json);
 
   void adddata();
  protected:

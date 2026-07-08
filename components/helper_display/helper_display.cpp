@@ -55,6 +55,11 @@ void HelperDisplay::ds_update_current(std::string entity, int32_t value) {
   }
 }
 
+void HelperDisplay::ds_init_by_json(JsonObjectConst json) {
+  ESP_LOGD("dhjsn", json["response"]["entity"]);
+
+}
+
 void HelperDisplay::adddata(){
   HDDatasource v_hdds("Test",2);
   v_hdds.update(1, true);
