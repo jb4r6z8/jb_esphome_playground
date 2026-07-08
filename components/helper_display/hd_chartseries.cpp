@@ -4,9 +4,6 @@
 namespace esphome {
 namespace helper_display {
 
-HDChartSeries::HDChartSeries() {
-}
-
 HDChartSeries::HDChartSeries(std::string series, HDChartSeriesType seriestype, std::string entity,
               uint16_t granularity, int32_t * data) {
     series_ = series;
