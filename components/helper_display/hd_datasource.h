@@ -16,6 +16,7 @@ class HDDatasource {
     std::string get_entity();
     uint16_t get_granularity();
     void update(int32_t value, bool force_append);
+    void init_by_json(JsonObjectConst json);
 
   protected:
     bool initialized_ = false;
