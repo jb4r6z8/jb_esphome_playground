@@ -43,7 +43,7 @@ void HDDatasource::init_by_json(JsonObjectConst json) {
   for (int i = 0; i < data_size; i++) {
     data_[i] = 0;
   }
-  JsonArrayConst v_result = response["response"]["result"].as<JsonArrayConst>();
+  JsonArrayConst v_result = json["response"]["result"].as<JsonArrayConst>();
   if (!v_result.isNull()) {
     size_t v_result_rows = v_result.size();
     int v_result_i = v_result_rows;
