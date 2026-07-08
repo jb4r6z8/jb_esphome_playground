@@ -64,6 +64,20 @@ void HelperDisplay::ds_init_by_json(JsonObjectConst json) {
 
 }
 
+void HelperDisplay::cs_register(std::string series, HDChartSeriesType seriestype, 
+                                std::string entity, uint16_t granularity, int32_t * data ) {
+  if (hdcs_.contains(series)) {
+
+  }
+  else {
+    hdcs[series] = new HDChartSeries v_hdcs(series, seriestype, entity, granularity, &data);
+  }
+
+}
+
+
+
+
 void HelperDisplay::adddata(){
   HDDatasource v_hdds("Test",2);
   v_hdds.update(1, true);
