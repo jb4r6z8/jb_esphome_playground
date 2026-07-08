@@ -44,13 +44,13 @@ void HelperDisplay::ds_register(std::string entity, uint16_t granularity) {
 
 void HelperDisplay::ds_update(std::string entity, uint16_t granularity, int32_t value, bool force_append = false) {
   ds_register(entity,granularity);
-  hdds_[entity][granularity].update(value, force_append);
+  *hdds_[entity][granularity].update(value, force_append);
 }
 
 void HelperDisplay::ds_update_current(std::string entity, int32_t value) {
   if (hdds_.contains(entity)) {
     for (const auto& [granulariy, ds] : hdds_[entity]) {
-      ds.update(value);
+      *ds.update(value);
     }
   }
 }
@@ -62,7 +62,7 @@ void HelperDisplay::adddata(){
   v_hdds.update(3, true);
   v_hdds.update(4, false);
   v_hdds.update(5);
-  hdds_[v_hdds.get_entity()][v_hdds.get_granularity()] = v_hdds*;
+  hdds_[v_hdds.get_entity()][v_hdds.get_granularity()] = v_hdds;
   
 }
 
