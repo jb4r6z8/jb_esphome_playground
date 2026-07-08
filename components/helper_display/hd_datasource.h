@@ -13,7 +13,7 @@ class HDDatasource {
     HDDatasource();
     HDDatasource(std::string entity, uint16_t granularity);
     std::string get_entity();
-    uint16_t granularity();
+    uint16_t get_granularity();
     void update(int32_t value, bool force_append);
 
   protected:

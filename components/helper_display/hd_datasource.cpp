@@ -20,7 +20,7 @@ std::string HDDatasource::get_entity() {
     return entity_;
 }
 
-uint16_t HDDatasource::granularity() {
+uint16_t HDDatasource::get_granularity() {
     return granularity_;
 }
 
