@@ -162,7 +162,7 @@ void HelperDisplay::cs_register(std::string series, HDChartSeriesType seriestype
 }
 
 void test() {
-  hdcs_[lv_page001tl_chart001_series001]-->test();
+  hdcs_["lv_page001tl_chart001_series001"]->test();
 }
 
 
