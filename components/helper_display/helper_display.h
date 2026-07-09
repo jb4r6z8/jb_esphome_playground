@@ -3,11 +3,57 @@
 #include <map>
 #include <ArduinoJson.h>
 #include "esphome/core/component.h"
-#include "hd_datasource.h"
-#include "hd_chartseries.h"
 
 namespace esphome {
 namespace helper_display {
+
+static const uint16_t data_size = 512;
+
+class HDDatasource {
+  public:
+    
+    HDDatasource(std::string entity, uint16_t granularity);
+    HDDatasource();
+    std::string get_entity();
+    uint16_t get_granularity();
+    void update(int32_t value, bool force_append);
+    void init_by_json(JsonObjectConst json);
+
+  protected:
+    std::string entity_ = "";
+    uint16_t granularity_ = 0;
+    int32_t *data_ = (int32_t *) heap_caps_malloc(data_size * sizeof(int32_t), MALLOC_CAP_SPIRAM);
+    uint16_t ptr_ = 0;
+    int32_t ts_ = 0;
+
+};
+
+
+enum class HDChartSeriesType : uint8_t {
+  DISABLED = 0x00,
+  STANDARD = 0x01,
+}; 
+
+class HDChartSeries {
+  public:
+    
+  HDChartSeries(std::string series, HDChartSeriesType seriestype, std::string entity, uint16_t granularity, int32_t * data);
+  HDChartSeries();
+
+  std::string get_entity();
+  uint16_t get_granularity();
+    
+
+  protected:
+    std::string series_ = "";
+    HDChartSeriesType seriestype_ = HDChartSeriesType::STANDARD;
+    std::string entity_ = "";
+    uint16_t granularity_ = 0;
+    int32_t * data_ ;
+
+};
+
+
 
 class HelperDisplay : public Component {
  public:
