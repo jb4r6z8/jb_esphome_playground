@@ -67,18 +67,19 @@ void HDDatasource::init_by_json(JsonObjectConst json) {
 
 ///////////HDChartSeries
 HDChartSeries::HDChartSeries(std::string series, HDChartSeriesType seriestype, std::string entity,
-                             uint16_t granularity, int32_t * data) {
+                             uint16_t granularity, int32_t * data, uint32_t data_size) {
     series_ = series;
     seriestype_ = seriestype;
     entity_ = entity;
     granularity_ = granularity;
     data_ = data;
+    data_size_ = data_size;
 }
 
-HDChartSeries::HDChartSeries(std::string series, int32_t * data) : HDChartSeries::HDChartSeries(series,HDChartSeriesType::DISABLED,"",0,data) {
+HDChartSeries::HDChartSeries(std::string series, int32_t * data, uint32_t data_size) : HDChartSeries::HDChartSeries(series,HDChartSeriesType::DISABLED,"",0,data, data_size) {
 }
 
-HDChartSeries::HDChartSeries() : HDChartSeries::HDChartSeries("",HDChartSeriesType::DISABLED,"",0,nullptr) {
+HDChartSeries::HDChartSeries() : HDChartSeries::HDChartSeries("",HDChartSeriesType::DISABLED,"",0,nullptr,0) {
 }
 
 void HDChartSeries::update_settings(HDChartSeriesType seriestype, std::string entity, uint16_t granularity) {
@@ -173,9 +174,9 @@ void HelperDisplay::ds_init_by_json(JsonObjectConst json) {
 
 }
 
-void HelperDisplay::cs_register(std::string series, int32_t * data ) {
+void HelperDisplay::cs_register(std::string series, int32_t * data, uint32_t data_size ) {
   if (!hdcs_.contains(series)) {
-    hdcs_[series] = new HDChartSeries(series, data);
+    hdcs_[series] = new HDChartSeries(series, data, data_size);
   }
 }
 

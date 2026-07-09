@@ -37,11 +37,11 @@ enum class HDChartSeriesType : uint8_t {
 class HDChartSeries {
   public:
     
-  HDChartSeries(std::string series, HDChartSeriesType seriestype, std::string entity, uint16_t granularity, int32_t * data);
-  HDChartSeries(std::string series, int32_t * data);
+  HDChartSeries(std::string series, HDChartSeriesType seriestype, std::string entity, uint16_t granularity, int32_t * data, uint32_t data_size);
+  HDChartSeries(std::string series, int32_t * data, uint32_t data_size);
   HDChartSeries();
 
-  void update_settings(HDChartSeriesType seriestype, std::string entity, uint16_t granularity);
+  void update_settings(HDChartSeriesType seriestype, std::string entity, uint16_t granularity, uint32_t data_size);
   
   std::string get_series();
   HDChartSeriesType get_seriestype();
@@ -78,7 +78,7 @@ class HelperDisplay : public Component {
   void ds_init_by_json(JsonObjectConst json);
 
   void cs_register(std::string series, int32_t * data );
-  void cs_update_settings(std::string series, HDChartSeriesType seriestype, std::string entity, uint16_t granularity);
+  void cs_update_settings(std::string series, HDChartSeriesType seriestype, std::string entity, uint16_t granularity, uint32_t data_size);
 
   void adddata();
   void test();
