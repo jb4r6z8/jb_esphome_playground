@@ -59,7 +59,7 @@ class HDChartSeries {
     std::string entity_ = "";
     uint16_t granularity_ = 0;
     int32_t * data_ ;
-    unit16_t data_size_ = 0;
+    uint16_t data_size_ = 0;
 
 };
 
