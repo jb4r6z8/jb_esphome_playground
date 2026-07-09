@@ -80,6 +80,7 @@ class HelperDisplay : public Component {
 
   void cs_register(std::string series, int32_t * data, uint32_t data_size );
   void cs_update_settings(std::string series, HDChartSeriesType seriestype, std::string entity, uint16_t granularity);
+  void cs_update_data(std::string series);
 
   void adddata();
   void test();

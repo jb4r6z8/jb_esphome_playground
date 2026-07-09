@@ -193,6 +193,13 @@ void HelperDisplay::cs_update_settings(std::string series, HDChartSeriesType ser
   }
 }
 
+void HelperDisplay::cs_update_data(std::string series) {
+  if (hdcs_.contains(series)) {
+    hdcs_[series]->update_data_point(1,20);
+    hdcs_[series]->update_data_point(2,INT32_MAX);
+  }
+}
+
 void HelperDisplay::test() {
   hdcs_["lv_page001tl_chart001_series001"]->test();
   ESP_LOGD("JBDH","Arraysize: %i", hdcs_["lv_page001tl_chart001_series001"]->get_data_size());
