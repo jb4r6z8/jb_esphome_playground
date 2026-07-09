@@ -82,12 +82,6 @@ HDChartSeries::HDChartSeries(std::string series, int32_t * data, uint32_t data_s
 HDChartSeries::HDChartSeries() : HDChartSeries::HDChartSeries("",HDChartSeriesType::DISABLED,"",0,nullptr,0) {
 }
 
-void HDChartSeries::update_settings(HDChartSeriesType seriestype, std::string entity, uint16_t granularity) {
-  seriestype_=seriestype;
-  entity_ = entity;
-  granularity_ = granularity_;
-}
-
 std::string HDChartSeries::get_series() {
     return series_;
 }
@@ -108,6 +102,19 @@ uint32_t HDChartSeries::get_data_size() {
   return data_size_;
 }
 
+void HDChartSeries::update_settings(HDChartSeriesType seriestype, std::string entity, uint16_t granularity) {
+  seriestype_=seriestype;
+  entity_ = entity;
+  granularity_ = granularity_;
+}
+
+void HDChartSeries::update_data_point(uint32_t point, int32_t value) {
+  if (point < data_size_) {
+    data_[point] = value;
+  }
+
+}
+
 
 void HDChartSeries::test() {
   data_[0] = 0;
@@ -115,9 +122,9 @@ void HDChartSeries::test() {
   data_[2] = 20;
   data_[3] = 30;
   data_[88] = 90;
-
 }
-///////////HekperDisplay
+
+///////////HelperDisplay
 void HelperDisplay::setup() {
 
 }

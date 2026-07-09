@@ -41,14 +41,15 @@ class HDChartSeries {
   HDChartSeries(std::string series, int32_t * data, uint32_t data_size);
   HDChartSeries();
 
-  void update_settings(HDChartSeriesType seriestype, std::string entity, uint16_t granularity);
-  
   std::string get_series();
   HDChartSeriesType get_seriestype();
   std::string get_entity();
   uint16_t get_granularity();
   uint32_t get_data_size();
-
+ 
+  void update_settings(HDChartSeriesType seriestype, std::string entity, uint16_t granularity);
+  void update_data_point(uint32_t point, int32_t value);
+ 
 
   void test();
     
