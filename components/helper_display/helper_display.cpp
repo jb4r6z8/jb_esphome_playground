@@ -1,7 +1,7 @@
 #include "esphome/core/log.h"
 #include "helper_display.h"
-#include "hd_datasource.cpp"
-#include "hd_chartseries.cpp"
+#include "hd_datasource.h"
+#include "hd_chartseries.h"
 
 namespace esphome {
 namespace helper_display {
