@@ -154,11 +154,7 @@ void HelperDisplay::ds_init_by_json(JsonObjectConst json) {
 }
 
 void HelperDisplay::cs_register(std::string series, int32_t * data ) {
-  if (hdcs_.contains(series)) {
-
-  }
-  else {
-    
+  if (!hdcs_.contains(series)) {
     hdcs_[series] = new HDChartSeries(series, data);
   }
 
