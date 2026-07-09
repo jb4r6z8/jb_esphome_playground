@@ -6,7 +6,8 @@ namespace esphome {
 namespace helper_display {
 
 enum class HDChartSeriesType : uint8_t {
-  STANDARD = 0x00,
+  DISABLED = 0x00,
+  STANDARD = 0x01,
 }; 
 
 class HDChartSeries {
