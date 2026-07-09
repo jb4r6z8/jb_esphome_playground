@@ -104,12 +104,7 @@ uint16_t HDChartSeries::get_granularity() {
 }
 
 uint16_t HDChartSeries::get_data_size() {
-  if (data_ == nullptr) {
-    return 0;
-  }
-  else {
-    return *data_.size();
-  }
+  return data_size_;
 }
 
 
