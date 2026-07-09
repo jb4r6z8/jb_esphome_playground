@@ -1,3 +1,4 @@
+#include <chrono>
 #include "esphome/core/log.h"
 #include "helper_display.h"
 
