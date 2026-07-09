@@ -108,7 +108,7 @@ uint16_t HDChartSeries::get_data_size() {
     return 0;
   }
   else {
-    return sizeof(data_) / sizeof(data_[0]);
+    return sizeof(&data_) / sizeof(data_[0]);
   }
 }
 
