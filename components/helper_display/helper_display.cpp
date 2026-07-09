@@ -103,7 +103,7 @@ uint16_t HDChartSeries::get_granularity() {
     return granularity_;
 }
 
-uint16_t HDChartSeries::get_data_size() {
+uint32_t HDChartSeries::get_data_size() {
   return data_size_;
 }
 
