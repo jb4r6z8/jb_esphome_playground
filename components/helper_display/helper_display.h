@@ -47,6 +47,8 @@ class HDChartSeries {
   HDChartSeriesType get_seriestype();
   std::string get_entity();
   uint16_t get_granularity();
+  uint16_t get_data_size();
+
 
   void test();
     

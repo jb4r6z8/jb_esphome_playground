@@ -103,6 +103,16 @@ uint16_t HDChartSeries::get_granularity() {
     return granularity_;
 }
 
+uint16_t HDChartSeries::get_data_size() {
+  if (data_ == nullptr) {
+    return 0;
+  }
+  else {
+    return sizeof(arr) / sizeof(arr[0]);
+  }
+}
+
+
 void HDChartSeries::test() {
   data_[0] = 0;
   data_[1] = 10;
@@ -181,6 +191,7 @@ void HelperDisplay::cs_update_settings(std::string series, HDChartSeriesType ser
 
 void HelperDisplay::test() {
   hdcs_["lv_page001tl_chart001_series001"]->test();
+  ESP_LOGD("JBDH","Arraysize: %i", hdcs_["lv_page001tl_chart001_series001"]->get_data_size());
 }
 
 
