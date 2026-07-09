@@ -81,6 +81,20 @@ HDChartSeries::HDChartSeries(std::string series, int32_t * data) : HDChartSeries
 HDChartSeries::HDChartSeries() : HDChartSeries::HDChartSeries("",HDChartSeriesType::DISABLED,"",0,nullptr) {
 }
 
+void HDChartSeries::update_settings(HDChartSeriesType seriestype, std::string entity, uint16_t granularity) {
+  seriestype_=seriestype;
+  entity_ = entity;
+  granularity_ = granularity_;
+}
+
+std::string HDChartSeries::get_series() {
+    return series_;
+}
+
+HDChartSeriesType HDChartSeries::get_seriestype() {
+    return seriestype_;
+}
+
 std::string HDChartSeries::get_entity() {
     return entity_;
 }
@@ -157,7 +171,12 @@ void HelperDisplay::cs_register(std::string series, int32_t * data ) {
   if (!hdcs_.contains(series)) {
     hdcs_[series] = new HDChartSeries(series, data);
   }
+}
 
+void HelperDisplay::cs_update_settings(std::string series, HDChartSeriesType seriestype, std::string entity, uint16_t granularity) {
+  if (hdcs_.contains(series)) {
+    hdcs_[series]->update_settings(seriestype, entity, granularity);
+  }
 }
 
 void HelperDisplay::test() {
