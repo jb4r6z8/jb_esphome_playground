@@ -42,6 +42,8 @@ class HDChartSeries {
 
   std::string get_entity();
   uint16_t get_granularity();
+
+  void test();
     
 
   protected:
@@ -71,6 +73,10 @@ class HelperDisplay : public Component {
                    std::string entity, uint16_t granularity, int32_t * data );
 
   void adddata();
+  void test();
+
+
+
  protected:
   std::map<std::string,std::map<uint16_t,HDDatasource*>> hdds_;
   std::map<std::string,HDChartSeries*> hdcs_;

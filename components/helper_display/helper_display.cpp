@@ -85,6 +85,13 @@ uint16_t HDChartSeries::get_granularity() {
     return granularity_;
 }
 
+void test() {
+  data_[0] = 0;
+  data_[1] = 10;
+  data_[2] = 20;
+  data_[3] = 30;
+
+}
 
 void HelperDisplay::setup() {
 
@@ -154,7 +161,9 @@ void HelperDisplay::cs_register(std::string series, HDChartSeriesType seriestype
 
 }
 
-
+void test() {
+  hdcs_[lv_page001tl_chart001_series001]-->test();
+}
 
 
 void HelperDisplay::adddata(){
