@@ -7,6 +7,7 @@ namespace helper_display {
 
 static const char *TAG = "helper_display.component";
 
+///////////HDDataSource
 HDDatasource::HDDatasource(std::string entity, uint16_t granularity) {
   entity_ = entity;
   granularity_ = granularity;
@@ -64,7 +65,7 @@ void HDDatasource::init_by_json(JsonObjectConst json) {
   }
 }
 
-
+///////////HDChartSeries
 HDChartSeries::HDChartSeries(std::string series, HDChartSeriesType seriestype, std::string entity,
                              uint16_t granularity, int32_t * data) {
     series_ = series;
@@ -74,7 +75,10 @@ HDChartSeries::HDChartSeries(std::string series, HDChartSeriesType seriestype, s
     data_ = data;
 }
 
-HDChartSeries::HDChartSeries() : HDChartSeries::HDChartSeries("",HDChartSeriesType::STANDARD,"",0,nullptr) {
+HDChartSeries::HDChartSeries(std::string series, int32_t * data) : HDChartSeries::HDChartSeries(series,HDChartSeriesType::DISABLED,"",0,data) {
+}
+
+HDChartSeries::HDChartSeries() : HDChartSeries::HDChartSeries("",HDChartSeriesType::DISABLED,"",0,nullptr) {
 }
 
 std::string HDChartSeries::get_entity() {
@@ -92,7 +96,7 @@ void HDChartSeries::test() {
   data_[3] = 30;
 
 }
-
+///////////HekperDisplay
 void HelperDisplay::setup() {
 
 }
@@ -149,14 +153,13 @@ void HelperDisplay::ds_init_by_json(JsonObjectConst json) {
 
 }
 
-void HelperDisplay::cs_register(std::string series, HDChartSeriesType seriestype, 
-                                std::string entity, uint16_t granularity, int32_t * data ) {
+void HelperDisplay::cs_register(std::string series, int32_t * data ) {
   if (hdcs_.contains(series)) {
 
   }
   else {
     
-    hdcs_[series] = new HDChartSeries(series, seriestype, entity, granularity, data);
+    hdcs_[series] = new HDChartSeries(series, data);
   }
 
 }

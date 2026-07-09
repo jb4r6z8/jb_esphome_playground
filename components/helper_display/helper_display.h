@@ -38,6 +38,7 @@ class HDChartSeries {
   public:
     
   HDChartSeries(std::string series, HDChartSeriesType seriestype, std::string entity, uint16_t granularity, int32_t * data);
+  HDChartSeries(std::string series, int32_t * data);
   HDChartSeries();
 
   std::string get_entity();
@@ -69,8 +70,7 @@ class HelperDisplay : public Component {
   void ds_update_current(std::string entity, int32_t value);
   void ds_init_by_json(JsonObjectConst json);
 
-  void cs_register(std::string series, HDChartSeriesType seriestype, 
-                   std::string entity, uint16_t granularity, int32_t * data );
+  void cs_register(std::string series, int32_t * data );
 
   void adddata();
   void test();
