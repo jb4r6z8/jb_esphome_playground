@@ -195,8 +195,27 @@ void HelperDisplay::cs_update_settings(std::string series, HDChartSeriesType ser
 
 void HelperDisplay::cs_update_data(std::string series) {
   if (hdcs_.contains(series)) {
-    hdcs_[series]->update_data_point(1,20);
-    hdcs_[series]->update_data_point(2,INT32_MAX);
+    switch (hdcs_[series]->get_seriestype()) {
+      case HDChartSeriesType::DISABLED:
+        if (hdcs_[series]->get_data_size() > 0) {
+          for (uint32_t i = 0; i < hdcs_[series]->get_data_size(); i++) {
+            hdcs_[series]->update_data_point(2,INT32_MAX);
+          }
+        }
+        break;
+      case HDChartSeriesType::STANDARD:
+        if (hdcs_[series]->get_data_size() > 0) {
+          if (hdds_.contains(hdcs_[series]->get_entity()) and hdds_[hdcs_[series]->get_entity()].contains(hdcs_[series]->get_granularity())) {
+
+          }
+          else {
+            for (uint32_t i = 0; i < hdcs_[series]->get_data_size(); i++) {
+              hdcs_[series]->update_data_point(2,INT32_MAX);
+            }
+          }
+        }
+        break;
+    }
   }
 }
 
