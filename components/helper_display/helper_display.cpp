@@ -108,7 +108,7 @@ uint32_t HDChartSeries::get_data_size() {
 void HDChartSeries::update_settings(HDChartSeriesType seriestype, std::string entity, uint16_t granularity) {
   seriestype_=seriestype;
   entity_ = entity;
-  granularity_ = granularity_;
+  granularity_ = granularity;
 }
 
 void HDChartSeries::update_data_point(uint32_t point, int32_t value) {
@@ -180,7 +180,6 @@ void HelperDisplay::cs_register(std::string series, int32_t * data, uint32_t dat
 
 void HelperDisplay::cs_update_settings(std::string series, HDChartSeriesType seriestype, std::string entity, uint16_t granularity) {
   if (hdcs_.contains(series)) {
-    ESP_LOGD("JB", "Update Settings granularity: %i", granularity);
     hdcs_[series]->update_settings(seriestype, entity, granularity);
   }
 }
