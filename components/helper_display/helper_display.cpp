@@ -69,7 +69,6 @@ int32_t HDDatasource::get_data_point_by_offset(int32_t offset) {
   return data_[ ( ptr_ - offset ) % data_size ];
 }
 
-
 ///////////HDChartSeries
 HDChartSeries::HDChartSeries(std::string series, HDChartSeriesType seriestype, std::string entity,
                              uint16_t granularity, int32_t * data, uint32_t data_size) {
@@ -117,25 +116,13 @@ void HDChartSeries::update_data_point(uint32_t point, int32_t value) {
   if (point < data_size_) {
     data_[point] = value;
   }
-
-}
-
-
-void HDChartSeries::test() {
-  data_[0] = 0;
-  data_[1] = 10;
-  data_[2] = 20;
-  data_[3] = 30;
-  data_[88] = 90;
 }
 
 ///////////HelperDisplay
 void HelperDisplay::setup() {
-
 }
 
 void HelperDisplay::loop() {
-
 }
 
 void HelperDisplay::dump_config(){
@@ -226,24 +213,6 @@ void HelperDisplay::cs_update_data(std::string series) {
     }
   }
 }
-
-void HelperDisplay::test() {
-  hdcs_["lv_page001tl_chart001_series001"]->test();
-  ESP_LOGD("JBDH","Arraysize: %i", hdcs_["lv_page001tl_chart001_series001"]->get_data_size());
-}
-
-
-void HelperDisplay::adddata(){
-  HDDatasource v_hdds("Test",2);
-  v_hdds.update(1, true);
-  v_hdds.update(2, true);
-  v_hdds.update(3, true);
-  v_hdds.update(4, false);
-  v_hdds.update(5);
-  hdds_[v_hdds.get_entity()][v_hdds.get_granularity()] = &v_hdds;
-  
-}
-
 
 
 }  // namespace helper_display

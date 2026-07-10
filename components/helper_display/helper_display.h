@@ -9,6 +9,7 @@ namespace helper_display {
 
 static const uint16_t data_size = 512;
 
+///////////HDDataSource
 class HDDatasource {
   public:
     
@@ -29,7 +30,7 @@ class HDDatasource {
 
 };
 
-
+///////////HDChartSeries
 enum class HDChartSeriesType : uint8_t {
   DISABLED = 0x00,
   STANDARD = 0x01,
@@ -50,11 +51,7 @@ class HDChartSeries {
  
   void update_settings(HDChartSeriesType seriestype, std::string entity, uint16_t granularity);
   void update_data_point(uint32_t point, int32_t value);
- 
-
-  void test();
     
-
   protected:
     std::string series_ = "";
     HDChartSeriesType seriestype_ = HDChartSeriesType::STANDARD;
@@ -65,8 +62,7 @@ class HDChartSeries {
 
 };
 
-
-
+///////////HelperDisplay
 class HelperDisplay : public Component {
  public:
   void setup() override;
@@ -83,18 +79,9 @@ class HelperDisplay : public Component {
   void cs_update_settings(std::string series, HDChartSeriesType seriestype, std::string entity, uint16_t granularity);
   void cs_update_data(std::string series);
 
-  void adddata();
-  void test();
-
-
-
  protected:
   std::map<std::string,std::map<uint16_t,HDDatasource*>> hdds_;
   std::map<std::string,HDChartSeries*> hdcs_;
-  
-
-
-
 
 };
 
