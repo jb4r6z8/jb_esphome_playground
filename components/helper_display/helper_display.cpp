@@ -35,7 +35,6 @@ void HDDatasource::update(int32_t value, bool force_append = false ) {
     }
     ts_ = now_ts - (now_ts % granularity_);
     data_[ptr_] = value;
-    ESP_LOGD("JBDS","PTR: %i value: %i", ptr_, data_[ptr_]);
 }
 
 void HDDatasource::init_by_json(JsonObjectConst json) {
