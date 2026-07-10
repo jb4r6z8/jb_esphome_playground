@@ -18,6 +18,7 @@ class HDDatasource {
     uint16_t get_granularity();
     void update(int32_t value, bool force_append);
     void init_by_json(JsonObjectConst json);
+    int32_t get_data_point_by_offset(unit32_t offset);
 
   protected:
     std::string entity_ = "";
