@@ -113,6 +113,7 @@ void HDChartSeries::update_settings(HDChartSeriesType seriestype, std::string en
 
 void HDChartSeries::update_data_point(uint32_t point, int32_t value) {
   if (point < data_size_) {
+    ESP_LOGD("JB", "Chart Update Point: %i Value: %i",point,  value);
     data_[point] = value;
   }
 }
@@ -200,7 +201,6 @@ void HelperDisplay::cs_update_data(std::string series) {
             ESP_LOGD("JB", "Chart Update, Datasource Found");
             for (uint32_t i = 0; i < hdcs_[series]->get_data_size(); i++) {
               int32_t value = hdds_[hdcs_[series]->get_entity()][hdcs_[series]->get_granularity()]->get_data_point_by_offset(i + 1 - hdcs_[series]->get_data_size());
-              ESP_LOGD("JB", "Chart Update Value: %i", value);
               hdcs_[series]->update_data_point(i, value );
             }
           }
