@@ -195,6 +195,7 @@ void HelperDisplay::cs_update_data(std::string series) {
         }
         break;
       case HDChartSeriesType::STANDARD:
+        ESP_LOGD("JB", "Chart Update");
         if (hdcs_[series]->get_data_size() > 0) {
           if (hdds_.contains(hdcs_[series]->get_entity()) and hdds_[hdcs_[series]->get_entity()].contains(hdcs_[series]->get_granularity())) {
             for (uint32_t i = 0; i < hdcs_[series]->get_data_size(); i++) {
