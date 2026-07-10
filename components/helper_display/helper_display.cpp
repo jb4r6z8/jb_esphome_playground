@@ -65,7 +65,7 @@ void HDDatasource::init_by_json(JsonObjectConst json) {
   }
 }
 
-int32_t HDDatasource::get_data_point_by_offset(unit32_t offset) {
+int32_t HDDatasource::get_data_point_by_offset(int32_t offset) {
   return data_[ ( ptr_ - offset ) % data_size ];
 }
 
