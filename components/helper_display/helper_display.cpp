@@ -198,7 +198,8 @@ void HelperDisplay::cs_update_data(std::string series) {
         ESP_LOGD("JB", "Chart Update");
         if (hdcs_[series]->get_data_size() > 0) {
           ESP_LOGD("JB", "Chart Update, CS Data Size valid");
-          ESP_LOGD("JB", hdcs_[series]->get_entity());
+          ESP_LOGD("JB", "Chart Update, CS Data Size valid: entity: %s", &hdcs_[series]->get_entity());
+          
           if (hdds_.contains(hdcs_[series]->get_entity()) and hdds_[hdcs_[series]->get_entity()].contains(hdcs_[series]->get_granularity())) {
             ESP_LOGD("JB", "Chart Update, Datasource Found");
             for (uint32_t i = 0; i < hdcs_[series]->get_data_size(); i++) {
