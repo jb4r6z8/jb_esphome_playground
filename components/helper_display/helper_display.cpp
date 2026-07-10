@@ -113,7 +113,6 @@ void HDChartSeries::update_settings(HDChartSeriesType seriestype, std::string en
 
 void HDChartSeries::update_data_point(uint32_t point, int32_t value) {
   if (point < data_size_) {
-    ESP_LOGD("JB", "Chart Update Point: %i Value: %i",point,  value);
     data_[point] = value;
   }
 }
