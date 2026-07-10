@@ -65,7 +65,7 @@ void HDDatasource::init_by_json(JsonObjectConst json) {
 }
 
 int32_t HDDatasource::get_data_point_by_offset(int32_t offset) {
-  return data_[ ( ptr_ - offset ) % data_size ];
+  return data_[ ( ptr_ + offset ) % data_size ];
 }
 
 ///////////HDChartSeries
@@ -195,18 +195,12 @@ void HelperDisplay::cs_update_data(std::string series) {
         }
         break;
       case HDChartSeriesType::STANDARD:
-        ESP_LOGD("JB", "Chart Update");
         if (hdcs_[series]->get_data_size() > 0) {
-          ESP_LOGD("JB", "Chart Update, CS Data Size valid");
-          ESP_LOGD("JB", "Chart Update, CS Data Size valid: entity: %s granularity: %i", hdcs_[series]->get_entity().c_str(),hdcs_[series]->get_granularity());
-          if ( hdds_.contains(hdcs_[series]->get_entity()) ) {
-            ESP_LOGD("JB", "Chart Update, Entity exists");
-          }
-          
           if (hdds_.contains(hdcs_[series]->get_entity()) and hdds_[hdcs_[series]->get_entity()].contains(hdcs_[series]->get_granularity())) {
             ESP_LOGD("JB", "Chart Update, Datasource Found");
             for (uint32_t i = 0; i < hdcs_[series]->get_data_size(); i++) {
               int32_t value = hdds_[hdcs_[series]->get_entity()][hdcs_[series]->get_granularity()]->get_data_point_by_offset(i + 1 - hdcs_[series]->get_data_size());
+              ESP_LOGD("JB", "Chart Update Value: %i", value);
               hdcs_[series]->update_data_point(i, value );
             }
           }
