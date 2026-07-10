@@ -57,7 +57,6 @@ void HDDatasource::init_by_json(JsonObjectConst json) {
         v_result_i--;
         v_seq_i = v_result[v_result_i]["seq"].as<int>();
         v_value_i = round(v_result[v_result_i]["state_last"].as<float>());
-        ESP_LOGD("JBDSI", "Seq: %i Value: %i", v_seq_i, v_value_i);
       }
       data_[r] = v_value_i;
     }
@@ -197,7 +196,6 @@ void HelperDisplay::cs_update_data(std::string series) {
       case HDChartSeriesType::STANDARD:
         if (hdcs_[series]->get_data_size() > 0) {
           if (hdds_.contains(hdcs_[series]->get_entity()) and hdds_[hdcs_[series]->get_entity()].contains(hdcs_[series]->get_granularity())) {
-            ESP_LOGD("JB", "Chart Update, Datasource Found");
             for (uint32_t i = 0; i < hdcs_[series]->get_data_size(); i++) {
               int32_t value = hdds_[hdcs_[series]->get_entity()][hdcs_[series]->get_granularity()]->get_data_point_by_offset(i + 1 - hdcs_[series]->get_data_size());
               hdcs_[series]->update_data_point(i, value );
