@@ -78,6 +78,7 @@ class HelperDisplay : public Component {
   void cs_register(std::string series, int32_t * data, uint32_t data_size );
   void cs_update_settings(std::string series, HDChartSeriesType seriestype, std::string entity, uint16_t granularity);
   void cs_update_data(std::string series);
+  void cs_update_data_all();
 
  protected:
   std::map<std::string,std::map<uint16_t,HDDatasource*>> hdds_;

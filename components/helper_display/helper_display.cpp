@@ -214,6 +214,12 @@ void HelperDisplay::cs_update_data(std::string series) {
   }
 }
 
+void HelperDisplay::cs_update_data_all() {
+  for (const auto& [series, cs] : hdcs_) {
+    cs_update_data(series);
+  }
+
+}
 
 }  // namespace helper_display
 }  // namespace esphome
