@@ -45,7 +45,7 @@ class HDChartSeries {
 
   std::string get_series();
   HDChartSeriesType get_seriestype();
-  set_seriestype(HDChartSeriesType seriestype);
+  void set_seriestype(HDChartSeriesType seriestype);
   std::string get_entity();
   uint16_t get_granularity();
   void set_granularity(uint16_t granularity);
