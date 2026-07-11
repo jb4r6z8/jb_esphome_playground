@@ -125,7 +125,6 @@ uint32_t HDChartSeries::get_data_max() {
   }
   else {
     int32_t data_max = INT32_MIN;
-    ESP_LOGD("JB", "Max Series? %i", data_size_);
     for (uint32_t i = 0; i < data_size_; i++) {
       if (data_max < data_[i] and data_[i] != INT32_MAX ) {
         data_max = data_[i];
