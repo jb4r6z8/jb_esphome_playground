@@ -104,6 +104,37 @@ uint32_t HDChartSeries::get_data_size() {
   return data_size_;
 }
 
+uint32_t HDChartSeries::get_data_min() {
+  if (data_size_ == 0) {
+    return 0;
+  }
+  else {
+    int32_t data_min = INT32_MAX;
+    for (uint32_t i = 0; i < data_size_; i++) {
+      if (data_min < data_[i]) {
+        data_min = data_[i];
+      }
+    }
+    return data_min;
+  }
+}
+
+uint32_t HDChartSeries::get_data_max() {
+  if (data_size_ == 0) {
+    return 0;
+  }
+  else {
+    int32_t data_max = INT32_MIN;
+    for (uint32_t i = 0; i < data_size_; i++) {
+      if (data_max > data_[i] and data_[i] != INT32_MAX ) {
+        data_max = data_[i];
+      }
+    }
+    return data_max;
+  }
+}
+
+
 void HDChartSeries::update_settings(HDChartSeriesType seriestype, std::string entity, uint16_t granularity) {
   seriestype_=seriestype;
   entity_ = entity;
@@ -216,8 +247,26 @@ void HelperDisplay::cs_update_data_all() {
   for (const auto& [series, cs] : hdcs_) {
     cs_update_data(series);
   }
-
 }
+
+void HelperDisplay::cs_get_data_min(std::string series) {
+  if (hdcs_.contains(series)) {
+    return hdcs_[series]->get_data_min();
+  }
+  else {
+    return INT32_MAX;
+  }
+}
+
+void HelperDisplay::cs_get_data_max(std::string series) {
+  if (hdcs_.contains(series)) {
+    return hdcs_[series]->get_data_max();
+  }
+  else {
+    return INT32_MIN;
+  }
+}
+
 
 }  // namespace helper_display
 }  // namespace esphome

@@ -47,6 +47,8 @@ class HDChartSeries {
   HDChartSeriesType get_seriestype();
   std::string get_entity();
   uint16_t get_granularity();
+  uint32_t get_data_min();
+  uint32_t get_data_max();
   uint32_t get_data_size();
  
   void update_settings(HDChartSeriesType seriestype, std::string entity, uint16_t granularity);
@@ -79,6 +81,10 @@ class HelperDisplay : public Component {
   void cs_update_settings(std::string series, HDChartSeriesType seriestype, std::string entity, uint16_t granularity);
   void cs_update_data(std::string series);
   void cs_update_data_all();
+  void cs_get_data_min(std::string series);
+  void cs_get_data_max(std::string series);
+
+
 
  protected:
   std::map<std::string,std::map<uint16_t,HDDatasource*>> hdds_;
