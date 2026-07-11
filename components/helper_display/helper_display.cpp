@@ -92,12 +92,20 @@ HDChartSeriesType HDChartSeries::get_seriestype() {
     return seriestype_;
 }
 
+void HDChartSeries::set_seriestype(HDChartSeriesType seriestype) {
+    seriestype_ = seriestype;
+}
+
 std::string HDChartSeries::get_entity() {
     return entity_;
 }
 
 uint16_t HDChartSeries::get_granularity() {
     return granularity_;
+}
+
+void HDChartSeries::set_granularity(uint16_t granularity) {
+    granularity_ = granularity;
 }
 
 uint32_t HDChartSeries::get_data_size() {
@@ -211,6 +219,36 @@ void HelperDisplay::cs_register(std::string series, int32_t * data, uint32_t dat
 void HelperDisplay::cs_update_settings(std::string series, HDChartSeriesType seriestype, std::string entity, uint16_t granularity) {
   if (hdcs_.contains(series)) {
     hdcs_[series]->update_settings(seriestype, entity, granularity);
+  }
+}
+
+HDChartSeriesType HelperDisplay::cs_get_seriestype(std::string series) {
+  if (hdcs_.contains(series)) {
+    return hdcs_[series]->get_seriestype();
+  }
+  else {
+    return HDChartSeriesType::DISABLED;
+  }
+}
+
+void HelperDisplay::cs_set_seriestype(std::string series, HDChartSeriesType seriestype) {
+  if (hdcs_.contains(series)) {
+    hdcs_[series]->set_seriestype(seriestype);
+  }
+}
+
+uint16_t HelperDisplay::cs_get_granularity(std::string series) {
+  if (hdcs_.contains(series)) {
+    return hdcs_[series]->get_granularity();
+  }
+  else {
+    return 0;
+  }
+}
+
+void HelperDisplay::cs_set_granularity(std::string series, uint16_t granularity) {
+  if (hdcs_.contains(series)) {
+    hdcs_[series]->set_granularity(granularity);
   }
 }
 
