@@ -260,6 +260,7 @@ int32_t HelperDisplay::cs_get_data_min(std::string series) {
 
 int32_t HelperDisplay::cs_get_data_max(std::string series) {
   if (hdcs_.contains(series)) {
+    ESP_LOGD("JB", "Max Series?");
     return hdcs_[series]->get_data_max();
   }
   else {
