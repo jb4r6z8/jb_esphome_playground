@@ -111,7 +111,7 @@ uint32_t HDChartSeries::get_data_min() {
   else {
     int32_t data_min = INT32_MAX;
     for (uint32_t i = 0; i < data_size_; i++) {
-      if (data_min < data_[i]) {
+      if (data_min > data_[i]) {
         data_min = data_[i];
       }
     }
@@ -125,8 +125,9 @@ uint32_t HDChartSeries::get_data_max() {
   }
   else {
     int32_t data_max = INT32_MIN;
+    ESP_LOGD("JB", "Max Series? %i", data_size_);
     for (uint32_t i = 0; i < data_size_; i++) {
-      if (data_max > data_[i] and data_[i] != INT32_MAX ) {
+      if (data_max < data_[i] and data_[i] != INT32_MAX ) {
         data_max = data_[i];
       }
     }
@@ -260,7 +261,6 @@ int32_t HelperDisplay::cs_get_data_min(std::string series) {
 
 int32_t HelperDisplay::cs_get_data_max(std::string series) {
   if (hdcs_.contains(series)) {
-    ESP_LOGD("JB", "Max Series?");
     return hdcs_[series]->get_data_max();
   }
   else {
