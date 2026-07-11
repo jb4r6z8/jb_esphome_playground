@@ -81,8 +81,8 @@ class HelperDisplay : public Component {
   void cs_update_settings(std::string series, HDChartSeriesType seriestype, std::string entity, uint16_t granularity);
   void cs_update_data(std::string series);
   void cs_update_data_all();
-  void cs_get_data_min(std::string series);
-  void cs_get_data_max(std::string series);
+  int32_t cs_get_data_min(std::string series);
+  int32_t cs_get_data_max(std::string series);
 
 
 

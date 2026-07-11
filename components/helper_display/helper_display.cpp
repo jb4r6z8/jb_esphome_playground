@@ -249,7 +249,7 @@ void HelperDisplay::cs_update_data_all() {
   }
 }
 
-void HelperDisplay::cs_get_data_min(std::string series) {
+int32_t HelperDisplay::cs_get_data_min(std::string series) {
   if (hdcs_.contains(series)) {
     return hdcs_[series]->get_data_min();
   }
@@ -258,7 +258,7 @@ void HelperDisplay::cs_get_data_min(std::string series) {
   }
 }
 
-void HelperDisplay::cs_get_data_max(std::string series) {
+int32_t HelperDisplay::cs_get_data_max(std::string series) {
   if (hdcs_.contains(series)) {
     return hdcs_[series]->get_data_max();
   }
