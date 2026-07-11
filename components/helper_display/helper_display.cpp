@@ -32,7 +32,6 @@ void HDDatasource::update(int32_t value, bool force_append = false ) {
     auto now_ts = std::chrono::duration_cast<std::chrono::seconds>(now.time_since_epoch()).count();
     if (force_append or ts_ + granularity_ < now_ts ) {
       ptr_ = ( ptr_ + 1 ) % data_size;
-      ESP_LOGD("JBDS", "DS ptr: %i value: %i", ptr_, value);
       ts_ = now_ts - (now_ts % granularity_);
     }
     data_[ptr_] = value;
