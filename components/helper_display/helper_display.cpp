@@ -62,6 +62,12 @@ void HDDatasource::init_by_json(JsonObjectConst json) {
     }
   }
 }
+if (entity_ == "sensor.pvfrnsac_power" and granularity_ == 120 ) {
+  for (int i == 0; i < data_size; i++ ) {
+    ESP_LOGD("JB","i: %i value: %i",i, data_[i]);
+  }
+
+}
 
 int32_t HDDatasource::get_data_point_by_offset(int32_t offset) {
   return data_[ ( ptr_ + data_size + offset ) % data_size ];
