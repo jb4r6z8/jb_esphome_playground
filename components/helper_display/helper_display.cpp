@@ -65,8 +65,7 @@ void HDDatasource::init_by_json(JsonObjectConst json) {
   //  for (int i = 0; i < data_size; i++ ) {
   //    ESP_LOGD("JB","i: %i value: %i",i, data_[i]);
   //  }
-
-  }
+  //}
 
 }
 
